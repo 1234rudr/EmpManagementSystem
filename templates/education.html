@@ -1,0 +1,155 @@
+{% extends "home.html" %}
+{% block img %}/media/{{u.image}}{% endblock img %}
+{% block name %}{{u.user.first_name}} {{u.user.last_name}}{% endblock name %}
+{% block desig %}{{u.designation}}{% endblock desig %}
+{% block style %}
+{% comment %} .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 10vmin;
+  width: 10vmin;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 5vmin;
+  color: red;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 5vmin;
+  color: red;
+} {% endcomment %}
+    
+{% endblock style %}
+
+
+{% block body %}
+<form class="form-control border border-dark" method="POST">
+    {% csrf_token %}
+    <fieldset>
+     <legend>Graduation Details</legend>
+     <div class="form-row">
+         <div class="form-group col-md-6">
+           <label for="first_name">First_name</label>
+           <input type="text" class="form-control" id="inputEmail4" value="{{user.first_name}}" disabled>
+         </div>
+   
+         <div class="form-group col-md-6">
+           <label for="last_name">Last_name</label>
+           <input type="text" class="form-control" id="inputPassword4" value="{{user.last_name}}" disabled>
+         </div>
+       </div>
+   
+       <div class="form-group">
+         <label for="clg_name_ug">College Name</label>
+         <input type="text" name ="clg_name_ug" value="{{dis.clg_name_ug}}" class="form-control" id="inputAddress" placeholder="">
+       </div>
+   
+       <div class="form-group">
+         <label for="spec_ug">Specification</label>
+         <input type="text" name ="spec_ug" value="{{dis.courseug}}" class="form-control" id="inputAddress2" placeholder="">
+       </div>
+   
+       <div class="form-row">
+           <div class="form-group col-md-6">
+               <label for="yop_ug">Year Of Passing</label>
+               <input type="date" name ="yop_ug" class="form-control"    >
+             </div>
+       
+             <div class="form-group col-md-6">
+               <label for="percentage_ug">Percentage</label>
+               <input type="text" name ="percentage_ug" class="form-control" value="{{dis.percentage_ug}}" id="inputPassword4" placeholder="" >
+             </div>
+             <hr>
+       </div>
+       <hr>
+       <div>
+        <legend>PUC Details</legend>
+       </div>
+       <hr>
+
+       <div class="form-group">
+        <label for="clg_name_pu">College Name</label>
+        <input type="text" name ="clg_name_pu" value="{{dis.clg_name_pu}}" class="form-control" id="inputAddress" placeholder="">
+      </div>
+
+      <div class="form-group">
+        <label for="spec_pu">Specification</label>
+        <input type="text" name ="spec_pu" value="{{dis.coursepu}}" class="form-control" id="inputAddress2" placeholder="">
+      </div>
+  
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="yop_pu">Year Of Passing</label>
+              <input type="date" name ="yop_pu" class="form-control" id="inputEmail4" placeholder="" >
+            </div>
+      
+            <div class="form-group col-md-6">
+              <label for="percentage_pu">Percentage</label>
+              <input type="text" name ="percentage_pu" value="{{dis.percentage_pu}}" class="form-control" id="inputPassword4" placeholder="" >
+            </div>
+            <hr>
+      </div>
+      <hr>
+
+      <div>
+        <legend>High School Details</legend>
+       </div>
+       <hr>
+
+       <div class="form-group">
+        <label for="clg_name_school">School Name</label>
+        <input type="text" class="form-control" name ="clg_name_school" value="{{dis.clg_name_school}}"  placeholder="">
+      </div>
+
+      <div class="form-group">
+        <label for="spec_school">Specification</label>
+        <input type="text" class="form-control" name ="spec_school" value="{{dis.courseschool}}" id="inputAddress2" placeholder="">
+      </div>
+  
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="yop_school">Year Of Passing</label>
+              <input type="date" class="form-control" name ="yop_school"  placeholder="" >
+            </div>
+      
+            <div class="form-group col-md-6">
+              <label for="percentage_school">Percentage</label>
+              <input type="text" class="form-control" value="{{dis.percentage_school}}" name ="percentage_school" id="inputPassword4" placeholder="" >
+            </div>
+            <hr>
+      </div>
+
+      
+     <button type="submit" class="btn btn-primary">Submit</button>
+       
+
+       
+    </fieldset>
+   </form>
+
+
+   
+
+
+
+
+
+
+  
+
+    
+   
+  
+{% endblock body %}
+
+
+
+

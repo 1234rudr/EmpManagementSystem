@@ -1,0 +1,207 @@
+{% extends "index.html" %}
+{% block style %}
+
+
+html,body{
+background-image: url('https://th.bing.com/th/id/R.a6429795f90b8a35cafdf4454c222683?rik=H3Pqs4IT4Plp9w&riu=http%3a%2f%2fwww.blr.com%2fhtml_email%2fimages%2fWIR%2fHRDA%2fHRDA_050316.jpg&ehk=TD0y3rQjnw%2bsDdhRwWs96%2bBTl%2baK7HjQMEEJ9U9EbX8%3d&risl=&pid=ImgRaw&r=0');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+{% endblock style %}
+{% block body %}
+{% comment %} <div class="container">
+  <form  method="POST"  class="form-control">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="email">email</label>
+            <input type="text" name="email"  class="form-control" id="inputEmail4" >
+          </div>
+          <div class="form-group col-md-6">
+            <label for="password"> password</label>
+            <input type="password" class="form-control" name="password" id="inputPassword4" >
+          </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form> 
+ {% endcomment %}
+
+      {% comment %} <div class="container">
+         <div class="row"> 
+          <div class="col-md-6"> 
+            <div class="card"> 
+              <form  class="box" method="POST">
+                {% csrf_token %} 
+                <h1>Login</h1>
+                 <p class="text-muted"> Please enter your login and password!</p> 
+                 <input type="text" name="email" placeholder="Username"> 
+                 <input type="password" name="password" placeholder="Password"> 
+                 <a class="forgot text-muted" href="#">Forgot password?</a> 
+                 <input type="submit" name="" value="Login" href="#"> 
+                 <div class="col-md-12"> 
+                  <ul class="social-network social-circle"> 
+                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li> 
+                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li> 
+                  </ul> 
+                </div> 
+              </form>
+             </div>
+             </div> 
+            </div>
+</div>
+
+
+      
+      
+    </div> {% endcomment %}
+
+
+
+    {% comment %} <body class="main-bg">
+      <div class="login-container text-c animated flipInX">
+              <div>
+                  <h1 class="logo-badge text-whitesmoke"><span class="fa fa-user-circle"></span></h1>
+              </div>
+                  <h3 class="text-whitesmoke">Employee Sign In</h3>
+                
+              <div class="container-content">
+                  <form class="margin-t" method="POST">
+                    {% csrf_token %}
+                      <div class="form-group">
+                          <input type="text" name="email" class="form-control" placeholder="Username" required="">
+                      </div>
+                      <div class="form-group">
+                          <input type="password" name="password" class="form-control" placeholder="*****" required="">
+                      </div>
+                      <button type="submit" class="form-button button-l margin-b">Sign In</button>
+      
+                      <a class="text-darkyellow" href="#"><small>Forgot your password?</small></a>
+                      <p class="text-whitesmoke text-center"><small>Do not have an account?</small></p>
+                      <a class="text-darkyellow" href="#"><small>Sign Up</small></a>
+                  </form>
+                  <p class="margin-t text-whitesmoke"><small> Your Name &copy; 2018</small> </p>
+              </div>
+          </div>
+</body> {% endcomment %}
+
+
+<div class="container mt-5">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>Sign In</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="fab fa-facebook-square"></i></span>
+					<span><i class="fab fa-google-plus-square"></i></span>
+					<span><i class="fab fa-twitter-square"></i></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<form method="POST" >
+          {% csrf_token %}
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" name="email" class="form-control" placeholder="username">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" name="password" class="form-control" placeholder="password">
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Remember Me
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Don't have an account?<a href="#">Sign Up</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Forgot your password?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock body %} 

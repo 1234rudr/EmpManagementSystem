@@ -1,0 +1,277 @@
+{% extends "home.html" %}
+ {% block img %}/media/{{dis.image}}{% endblock img %}
+
+
+
+{% block name %}{{dis.user.first_name}} {{dis.user.last_name}}{% endblock name %}
+{% block na %}{{dis.user.first_name}} {{dis.user.last_name}}{% endblock na %}
+{% block desig %}{{dis.designation}}{% endblock desig %} 
+{% block dash %}<u>Profile</u>{% endblock dash %}
+{% block tittle %}profile{% endblock tittle %}
+
+
+
+{% block body %}
+
+                  {% comment %} <a href="{% url "profile" %}"><button type="button" class="btn btn-outline-danger">Edit</button></a> {% endcomment %}
+                
+              
+
+              <section class="section profile">
+                <div class="row">
+                  <div class="col-xl-4">
+              
+                    <div class="card">
+                      <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                        
+                        
+                       
+                        <img src="/media/{{dis.image}}" alt="Profile" class="rounded-circle">
+                       
+                        <h2>{{dis.user.first_name}}  </h2>
+                        <h3>{{dis.designation}}</h3>
+                        <div class="social-links mt-2">
+                          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                      </div>
+                    </div>
+              
+                  </div>
+              
+                  <div class="col-xl-8">
+              
+                    <div class="card">
+                      <div class="card-body pt-3">
+                        <!-- Bordered Tabs -->
+                        <ul class="nav nav-tabs nav-tabs-bordered">
+              
+                          
+              
+                          <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                          </li>
+              
+                          
+              
+                        </ul>
+                        <div class="tab-content pt-2">
+              
+                          <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                          
+                            <form  method="POST"  enctype="multipart/form-data" >
+                              {% csrf_token %}
+
+                             
+
+
+
+                              <div class="row mb-3">
+                                <div class="form-group col-md-4">
+                                  <label for="file">Upload your image</label>
+                                  
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <input type="file" class="form-control" value = " " name="img" id="inputPassword4" accept="image/*" placeholder="">
+                                </div>
+                                
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="fs" type="text" class="form-control" id="fullName" value="{{dis.user.first_name}}" disabled>
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="ls" type="text" class="form-control" id="fullName" value="{{dis.user.last_name}}" disabled>
+                                </div>
+                              </div>
+              
+                              
+              
+                              <div class="row mb-3">
+                                <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="company" type="text" class="form-control" id="company" value="Go Flamingo" disabled>
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Job" class="col-md-4 col-lg-3 col-form-label">Designation</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="designation" type="text" class="form-control" id="Job" value="{{dis.designation}}" disabled>
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="country" type="text" class="form-control" id="Country" value="India" disabled>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <label for="dept" class="col-md-4 col-lg-3 col-form-label">Department</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="dept" type="text" class="form-control" id="Email" value="{{dis.dept}}" disabled>
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="address" type="text" class="form-control" id="Address" value="{{dis.address}}">
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="phone" type="text" class="form-control" id="Phone" value="{{dis.phone_num}}">
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="email" type="email" class="form-control" id="Email" value="{{dis.email}}">
+                                </div>
+                              </div>
+
+                              
+
+                              <div class="row mb-3" >
+                                <label for="gender" class="col-md-4 col-lg-3 col-form-label" >Gender  {{dis.gender}}</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <select name="gender" class="form-control" >
+                                    <option value="none">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                    
+                                </select>
+                                </div>
+                             
+                              </div>
+                              <div class="row mb-3">
+                                <label for="jd" class="col-md-4 col-lg-3 col-form-label">Joining Date</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="jd" type="date" class="form-control" id="Email" value="{{dis.joining_date}}" disabled>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <label for="dob" class="col-md-4 col-lg-3 col-form-label">DateOFBIrth </label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="dob" type="date" class="form-control" id="Email"  value="{{dis.date_of_birth}}">
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <label for="id" class="col-md-4 col-lg-3 col-form-label">Employee ID</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="id" type="text" class="form-control" id="Email" value="{{dis.employee_code}}" disabled>
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <label for="pan" class="col-md-4 col-lg-3 col-form-label">PAN number</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="pan" type="text" class="form-control" id="Email" value="{{dis.pan_no}}" >
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <label for="adhar" class="col-md-4 col-lg-3 col-form-label">Adhar number</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="adhar" type="number" class="form-control" id="Email" value="{{dis.adhar_no}}" >
+                                </div>
+                              </div>
+                              
+                              <div class="row mb-3">
+                                <label for="alt_email" class="col-md-4 col-lg-3 col-form-label">Alternate Email</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="alt_email" type="email" class="form-control" id="Email" value="{{dis.alternate_email}}" >
+                                </div>
+                              </div>
+                              
+                              <div class="row mb-3">
+                                <label for="alt_num" class="col-md-4 col-lg-3 col-form-label">Alternate number</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="alt_num" type="number" class="form-control" id="Email" value="{{dis.alter_phone}}" >
+                                </div>
+                              </div>
+
+                              
+
+                              
+              
+                              {% comment %} <div class="row mb-3">
+                                <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="facebook" type="text" class="form-control" id="Facebook" value="https://facebook.com/#">
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="instagram" type="text" class="form-control" id="Instagram" value="https://instagram.com/#">
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#">
+                                </div>
+                              </div> {% endcomment %}
+              
+                              <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                              </div>
+                            </form>
+              
+                          </div>
+              
+                          <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+              
+                            <!-- Profile Edit Form -->
+                            <!-- End Profile Edit Form -->
+              
+                          </div>
+              
+                          <div class="tab-pane fade pt-3" id="profile-settings">
+              
+                            <!-- Settings Form -->
+                            
+              
+                          </div>
+              
+                          <div class="tab-pane fade pt-3" id="profile-change-password">
+                            <!-- Change Password Form -->
+                            
+              
+                          </div>
+              
+                        </div><!-- End Bordered Tabs -->
+              
+                      </div>
+                    </div>
+              
+                  </div>
+                </div>
+              </section>
+
+{% endblock body %}

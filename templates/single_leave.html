@@ -1,0 +1,69 @@
+{% extends "adminside/adminbase.html" %}
+{% block img %}/media/{{u.image}}{% endblock img %}
+{% block name %}{{u.user.first_name}} {{u.user.last_name}}{% endblock name %}
+{% block na %}{{u.user.first_name}} {{u.user.last_name}}{% endblock na %}
+{% block desig %}{{u.designation}}{% endblock desig %}
+{% block dash %}<u>LeavRequest</u>{% endblock dash %}
+{% block tittle %}LeaveReq{% endblock tittle %}
+{% block side %}<u>Leave Requests</u>{% endblock side %}
+
+{% block body %}
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title"> Leave Requests</h5>
+
+      <!-- Table with stripped rows -->
+      <form method="post" action="/a_leave_reqss/">
+        {% csrf_token %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Emp_code</th>
+            <th scope="col">Name</th>
+            <th scope="col">view</th>
+            <th scope="col">F_Date</th>
+            <th scope="col">T_Date</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in req  %}
+          
+          
+          <tr>
+            <th scope="row">{{i.details.employee_code}}</th>
+            <td>{{i.user.first_name}}</td>
+            <td>
+              <button type="button" class="btn btn-primary"
+                data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                data-bs-title="{{i.explanation}}">
+                  View
+              </button>
+            </td>
+            <td>{{i.from_date}}</td>
+            <td>{{i.to_date}}</td>
+                {% if i.status == 'Approved' %}
+              <td>
+                  <button class="btn btn-success"><label for="a">Approved 🗸</label></button></td>
+                {% else %}
+                
+
+              <td><button class="btn btn-danger"><label for="a">Rejected 〤</label></button></td>
+                {% endif %}
+                {% comment %} <td><a href="/a_leave_reqss/{{i.details.user_id}}" type="submit" class="btn btn-success">🗸</a></td> {% endcomment %}
+                {% comment %} <input type="hidden"  name="number" value="{{i.details.user_id}}">
+                <td><button class="btn btn-success" type="submit">🗸</button></td> {% endcomment %}
+          
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+    </form>
+      <!-- End Table with stripped rows -->
+
+    </div>
+  </div>
+{% endblock body %}

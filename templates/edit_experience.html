@@ -1,0 +1,342 @@
+{% extends "home.html" %}
+
+{% block img %}/media/{{dis.image}}{% endblock img %}
+{% block name %}{{dis.user.first_name}} {{dis.user.last_name}}{% endblock name %}
+{% block na %}{{dis.user.first_name}} {{dis.user.last_name}}{% endblock na %}
+{% block desig %}{{dis.designation}}{% endblock desig %} 
+{% block body %}
+
+{% comment %} <div class="card mb-4">
+    <h5 class="p-2 text-center"> Employee DashBoard</h5>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Full Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.user.first_name}} {{dis.user.last_name}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.user.username}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  ***********************Graduation Details **********************<hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Collage Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.clg_name_ug}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Specification</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.courseug}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Year of passing</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.yop_ug}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Percentage</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.percentage_ug}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  ***********************PUC Details **********************<hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Collage Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.clg_name_pu}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Specification</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.coursepu}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Year of passing</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.yop_pu}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Percentage</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.percentage_pu}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  ***********************School Details **********************<hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Collage Name</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.clg_name_school}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Specification</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.courseschool}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Year of passing</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.yop_scchool}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0">Percentage</p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{{dis.percentage_school}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <a href="{% url "education_details" %}"><button type="button" class="btn btn-outline-danger">Edit</button></a>
+                 
+                </div>
+              </div> {% endcomment %}
+              <section class="section profile">
+                <div class="row">
+                  <div class="col-xl-4">
+              
+                    <div class="card">
+                      <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                        
+                        
+                       
+                        <img src="/media/{{dis.image}}" alt="Profile" class="rounded-circle">
+                       
+                        <h2>{{dis.user.first_name}}  </h2>
+                        <h3>{{dis.designation}}</h3>
+                        <div class="social-links mt-2">
+                          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        </div>
+                      </div>
+                    </div>
+              
+                  </div>
+              
+                  <div class="col-xl-8">
+              
+                    <div class="card">
+                      <div class="card-body pt-3">
+                        <!-- Bordered Tabs -->
+                        <ul class="nav nav-tabs nav-tabs-bordered">
+              
+                          
+              
+                          <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Experiece</button>
+                          </li>
+              
+                          
+              
+                        </ul>
+                        <div class="tab-content pt-2">
+              
+                          <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                          
+                            <form  method="POST"  enctype="multipart/form-data" >
+                              {% csrf_token %}
+
+                              <h6 class="card-title">Work Experience</h6>
+
+
+
+                              
+              
+                              <div class="row mb-3">
+                                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Previous Company</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="p_company" type="text" class="form-control" id="fullName" value="{{dis.pre_company_name}}" >
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Job Tittle</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="j_tittle" type="text" class="form-control" id="fullName" value="{{dis.job_tittle}}" >
+                                </div>
+                              </div>
+              
+                    
+                              <div class="row mb-3">
+                                <label for="Job" class="col-md-4 col-lg-3 col-form-label">Start-Date</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="sd" type="date" class="form-control" id="Job" value="" >
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Country" class="col-md-4 col-lg-3 col-form-label">End-Date</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="ed" type="date" class="form-control" id="YearOfPassing" value="" >
+                                </div>
+                              </div>
+                              
+
+                              <div class="row mb-3">
+                                <label for="Country" class="col-md-4 col-lg-3 col-form-label">Upload Experience Letter</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="exp" type="file" class="form-control" accept=".pdf" id="Country" value="" >
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <label for="Country" class="col-md-4 col-lg-3 col-form-label">Upload Payslips</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="pay" type="file" class="form-control" accept=".pdf" id="Country" value="" >
+                                </div>
+                              </div>
+
+                              <div class="row mb-3">
+                                <label for="Country" class="col-md-4 col-lg-3 col-form-label">Upload Other Documents</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="other" type="file" class="form-control" accept=".pdf" id="Country" value="" >
+                                </div>
+                              </div>
+
+
+
+                              
+
+                              
+
+                              
+                              
+
+                              
+              
+                              {% comment %} <div class="row mb-3">
+                                <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="facebook" type="text" class="form-control" id="Facebook" value="https://facebook.com/#">
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="instagram" type="text" class="form-control" id="Instagram" value="https://instagram.com/#">
+                                </div>
+                              </div>
+              
+                              <div class="row mb-3">
+                                <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
+                                <div class="col-md-8 col-lg-9">
+                                  <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#">
+                                </div>
+                              </div> {% endcomment %}
+              
+                              <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                              </div>
+                            </form>
+              
+                          </div>
+              
+                          <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+              
+                            <!-- Profile Edit Form -->
+                            <!-- End Profile Edit Form -->
+              
+                          </div>
+              
+                          <div class="tab-pane fade pt-3" id="profile-settings">
+              
+                            <!-- Settings Form -->
+                            
+              
+                          </div>
+              
+                          <div class="tab-pane fade pt-3" id="profile-change-password">
+                            <!-- Change Password Form -->
+                            
+              
+                          </div>
+              
+                        </div><!-- End Bordered Tabs -->
+              
+                      </div>
+                    </div>
+              
+                  </div>
+                </div>
+              </section>
+
+              {% comment %} {% block script %}
+                              <script>
+                                document.getElementById('YearOfPassing').addEventListener('change', function (event) {
+                                    var input = event.target;
+                                    var selectedDate = new Date(input.value);
+                                    
+                                    if (!isNaN(selectedDate.getTime())) {
+                                        // Format the date as yyyy-mm-dd
+                                        var formattedDate = selectedDate.toISOString().split('T')[0];
+                                        input.value = formattedDate;
+                                    } else {
+                                        // Invalid date, clear the input
+                                        input.value = '';
+                                        alert('Invalid date format. Please select a valid date.');
+                                    }
+                                });
+                            </script>
+                              {% endblock script %} {% endcomment %}
+
+{% endblock body %}

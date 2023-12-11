@@ -1,0 +1,204 @@
+{% extends "adminside/adminbase.html" %}
+{% block tittle %}registration{% endblock tittle %}
+
+
+{% block img %}/media/{{emp.image}}{% endblock img %}
+{% block na %}{{emp.user.first_name}} {{emp.user.last_name}}{% endblock na %}
+{% block name %}{{emp.user.first_name}} {{emp.user.last_name}}{% endblock name %}
+{% block desig %}{{emp.designation}}{% endblock desig %}
+
+{% block body %}
+<div class="container-fluid" style="line-height:2rem;">
+  <form class="form-horizontal" role="form" method="post" name="signup" onsubmit="return checkpassword()">
+    {% csrf_token %}
+    <h2>Add Employee</h2>
+    <div class="form-group">
+      <label for="first_name" class="col-sm-3 control-label">First Name</label>
+      <div class="col-sm-9">
+        <input type="text" id="firstName" placeholder="First Name" name="first_name" class="form-control" autofocus>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="last_name" class="col-sm-3 control-label">Last Name</label>
+      <div class="col-sm-9">
+        <input type="text" id="lastName" placeholder="Last Name" name="last_name" class="form-control" autofocus>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="email" class="col-sm-3 control-label">Email* </label>
+      <div class="col-sm-9">
+        <input type="email" id="email" name="email" placeholder="Email" class="form-control" name="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="phone_num" class="col-sm-3 control-label">Contact_Number</label>
+      <div class="col-sm-9">
+        <input type="number" name="phone_num" placeholder="enter the number" class="form-control">
+      </div>
+    </div>
+
+
+   
+
+    <div class="form-group">
+      <label for="alt_phone_num" class="col-sm-3 control-label">Alternate_Contact_Number</label>
+      <div class="col-sm-9">
+        <input type="number" name="alt_phone_num" placeholder="enter the number" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="alt_email" class="col-sm-3 control-label">Alternate_Email</label>
+      <div class="col-sm-9">
+        <input type="email" name="alt_email" placeholder="enter the number" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="emp_code" class="col-sm-3 control-label">Employee_code</label>
+      <div class="col-sm-9">
+        <input type="text" name="emp_code" placeholder="enter the number" class="form-control">
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+      <label for="dept" class="col-sm-3 control-label">Employee_Department</label>
+      <div class="col-sm-9">
+        {% comment %} <input type="text" name="dept" placeholder="enter the number" class="form-control"> {% endcomment %}
+        <select name="dept" class="form-control">
+          {% for i in dept %}
+            
+          
+          <option value="{{i.pk}}">{{i.dept_name}}</option>
+
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="role" class="col-sm-3 control-label">Employee_role</label>
+      <div class="col-sm-9">
+        <input type="text" name="role" placeholder="enter the number" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone_num" class="col-sm-3 control-label">Pan_Card_Number</label>
+      <div class="col-sm-9">
+        <input type="text" name="pan_num" placeholder="enter the number" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="adhar_num" class="col-sm-3 control-label">Adhar_Card_Number</label>
+      <div class="col-sm-9">
+        <input type="number" name="adhar_num" placeholder="enter the number" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="doj" class="col-sm-3 control-label">Date_Of_Joining</label>
+      <div class="col-sm-9">
+        <input type="date" name="doj" placeholder="enter the number" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dob" class="col-sm-3 control-label">Date_Of_Birth</label>
+      <div class="col-sm-9">
+        <input type="date" name="dob" placeholder="enter the number" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="full_name" class="col-sm-3 control-label">Full Name</label>
+      <div class="col-sm-9">
+        <input type="text" name="full_name" placeholder="As per the adhar card" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name_bank" class="col-sm-3 control-label">Name_of_the_bank</label>
+      <div class="col-sm-9">
+        <input type="text" name="name_bank" placeholder="Enter the bank name" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ifsc" class="col-sm-3 control-label">IFSC code </label>
+      <div class="col-sm-9">
+        <input type="text" name="ifsc" placeholder="IFSC code of the entererd bank" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone_num" class="col-sm-3 control-label">Account_Number</label>
+      <div class="col-sm-9">
+        <input type="number" name="acc_num" placeholder="enter the number" class="form-control">
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="password" class="col-sm-3 control-label">Password*</label>
+      <div class="col-sm-9">
+        <input type="password" name="password" placeholder="Password" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="con_password" class="col-sm-3 control-label">Confirm_Password*</label>
+      <div class="col-sm-9">
+        <input type="password" name="con_password" placeholder="Password" class="form-control">
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary btn-block">Register</button>
+
+    {% comment %} <div class="d-flex justify-content-center">
+      <a class="text-strong" href="/all_employees/">Go Back</a>
+    </div> {% endcomment %}
+  </form> <!-- /form -->
+</div> <!-- ./container -->
+{% endblock body %}
+
+  
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  {% comment %} <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script> {% endcomment %}
+    {% block script %}
+    <script>
+      function checkpassword() {
+        if (document.signup.password.value != document.signup.con_password.value) {
+          alert("password does not match")
+          document.signup.con_password.focus()
+          return false
+        }
+        else {
+          return true
+        }
+  
+      }
+    </script>
+    {% endblock script %}
+  
