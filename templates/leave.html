@@ -92,9 +92,20 @@
         
         
        <div class="form-field col-lg-12">
-          <input id="name" class="input-text js-input" type="text" name="sub" value="" >
-          <label class="label mt-2" for="name">Subject</label>
-       </div>
+        <label class="input-text mt-2 js-input" for="name">Type Of Leave</label>
+          {% comment %} <input id="name" class="input-text js-input" type="text" name="sub" value="" > {% endcomment %}
+          <select name="sub" class="form-control">
+          
+            <option value=""></option>
+            {% for t in req %}
+            <option value="{{t.pk}}">{{t.names}}</option>
+            {% endfor %}
+          </select>
+          
+       </div> 
+
+       
+
        <div class="form-field col-lg-12">
         <input id="name" class="input-text js-input" type="date" name="fd" value = ""   required>
         <label class="label" for="name">From-Date</label>

@@ -808,11 +808,13 @@ def leaveRequest(request):
         return redirect("employee_login")
     user = request.user
     emp = employeeDetails.objects.get(user=user)
+    requests = TypesOfLeaves.objects.all()
     
     # employee = LeaveRequests.objects.get(user=user)
     
     disp={
-        'u':emp
+        'u':emp,
+        'req':requests
     }
     if request.method=="POST":
         sub = request.POST['sub']
@@ -820,7 +822,7 @@ def leaveRequest(request):
         td = request.POST['td']
         exp = request.POST['ex']
 
-        obj = LeaveRequests.objects.create(user=user,subject=sub,from_date=fd,to_date=td,explanation=exp,details=emp)
+        obj = LeaveRequests.objects.create(user=user,subject_id=sub,from_date=fd,to_date=td,explanation=exp,details=emp)
         obj.save()
 
     return render(request,"leave.html",disp)

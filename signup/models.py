@@ -144,11 +144,14 @@ class salary(models.Model):
     def __str__(self):
         return self.user.username
     
+class TypesOfLeaves(models.Model):
+    names = models.CharField(null=True,max_length=200)
 
 class LeaveRequests(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     details = models.ForeignKey(employeeDetails,on_delete=models.CASCADE,null=True)
-    subject = models.CharField(null=True,max_length=500)
+    # subject = models.CharField(null=True,max_length=500)
+    subject = models.ForeignKey(TypesOfLeaves,on_delete=models.CASCADE,null=True,blank=True)
     from_date = models.DateField(null=True)
     to_date =models.DateField(null=True)
     explanation = models.CharField(null=True,max_length=1500)
