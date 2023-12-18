@@ -152,9 +152,7 @@ def employee_profile(request):
         gender = request.POST['gender']
 
         if 'img' in request.FILES:
-            print("i'm here")
             img = request.FILES['img']
-            print("image recieved")
             employee.image = img  # Use 'image' here to match the model field name
 
 
